@@ -1,0 +1,61 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Master.cs" Inherits="PasswordManager.Site1" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="Styles.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+
+     <div id="topContent">
+         <a href="Login.aspx"> </a>
+     </div>
+ 
+     <div id="mainContent">
+        <asp:Literal ID="NotAuthorizedMessage" runat="server" Text="Sorry, no permission for this site!" Visible="false"></asp:Literal>
+        <asp:ContentPlaceHolder id="MainContent" runat="server">
+        </asp:ContentPlaceHolder>
+     </div>
+ 
+     <div id="leftContent">
+        <asp:LoginView id="LoginView1" runat="server">
+                    <LoggedInTemplate>
+                        
+                        <h3>Passwords</h3>    
+                        <ul>
+                        <li><a href="PwdShow.aspx">Show</a></li>
+                        <li><a href="PwdNew.aspx">Create new</a></li>
+                        </ul>
+                        
+                         <h3>My Profile</h3>    
+                         <ul>
+                         <li>Change Login Password</li>
+                         <li><a href="ProfileLoadKey.aspx">Load PrivatKey</a></li>
+                         <li><a href="ProfileChangeKey.aspx">Change KeyPair</a></li>
+                         </ul>
+                        <h3>Admin</h3>    
+                        <ul>
+                        <li><a href="CategoryAdmin.aspx">Show Categorys</a></li>
+                        <li><a href="CategoryAdminNew.aspx">Create new Category</a></li>
+                        <li><a href="UserAdmin.aspx">Show Users</a></li>
+                        <li><a href="UserAdminNew.aspx">Create new User</a></li>
+                        </ul>
+
+                    </LoggedInTemplate>
+        </asp:LoginView>
+        <p></p>
+        <asp:LoginStatus ID="LoginStatus1" runat="server" />
+     </div>
+ 
+     <div id="footerContent">
+        
+     </div>
+    </form>
+</body>
+</html>
+
